@@ -1,0 +1,32 @@
+[
+    {
+      "id": 0,
+      "name": "Jeff",
+      "email": "Bezos@amazon.com",
+      "phone": "05478"
+    },
+    {
+      "id": 1,
+      "name": "Elon",
+      "email": "Musk@tesla.com",
+      "phone": "05478"
+    },
+    {
+      "id": 2,
+      "name": "Andy",
+      "email": "Jessy@aws.com",
+      "phone": "05478"
+    },
+    {
+      "id": 3,
+      "name": "Tim",
+      "email": "Cook@apple.com",
+      "phone": "05478"
+    },
+    {
+      "id": 4,
+      "name": "Tom",
+      "email": "Cruise@mission-impossible.com",
+      "phone": "05478"
+    }
+  ]
