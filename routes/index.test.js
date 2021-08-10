@@ -36,7 +36,7 @@ it('test if the contacts endpoint returns data', async done => {
 })
 
 //test get contact by id
-it('get book by id', async done => {
+it('test get contact by id', async done => {
     const response = await request.get('/contacts/1')
     expect(response.status).toBe(200)
     expect(response.body).toMatchObject({id: 1})
@@ -47,6 +47,21 @@ it('get book by id', async done => {
 it('test contact not found', async done => {
     const response = await request.get('/contacts/7')
     expect(response.status).toBe(404)
+    done()
+})
+
+//test contact add
+it('test contact addition', async done => {
+    const response = await request.post('/contacts').send({name:"shaik",email:"shaik@gmail.com",phone:"05640"})
+    expect(response.status).toBe(200)
+    done()
+})
+
+
+//test contact delete
+it('test contact delete', async done => {
+    const response = await request.delete('/contacts/2')
+    expect(response.status).toBe(200)
     done()
 })
 

@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var jsonfile = require('jsonfile');
+var loki=require('lokijs');
 var indexRouter = require('./routes/index');
 
 var app = express();
@@ -11,6 +12,12 @@ var app = express();
 //read books from the file
 var contacts=jsonfile.readFileSync('./contacts.json');
 app.set('contacts',contacts);
+//loki implemtation
+var db=new loki('contactsdb');
+var contactsdb=db.addCollection("contacts")
+contactsdb.insert(contacts);
+app.set('contactsdb',contactsdb);
+
 
 
 // view engine setup
@@ -22,6 +29,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/scripts',express.static(path.join(__dirname,'/node_modules/validator')))
 
 app.use('/', indexRouter);
 
